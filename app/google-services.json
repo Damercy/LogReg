@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "594741457404",
+    "firebase_url": "https://logregapp-24cfa.firebaseio.com",
+    "project_id": "logregapp-24cfa",
+    "storage_bucket": "logregapp-24cfa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594741457404:android:a26f461176c1927018c279",
+        "android_client_info": {
+          "package_name": "com.example.logregapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594741457404-ricebt7ob8j99fiqgmndpb9d5kris6hh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMU4AxF-RgkyHNVbugZ25sHHttpOKBk68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594741457404-ricebt7ob8j99fiqgmndpb9d5kris6hh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
