@@ -9,17 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Screen5"></activity>
+        <activity android:name=".PopUpUpdateProf"
+            android:theme="@style/AppTheme.PopUp"/>
+        <activity android:name=".onBoard" />
+        <activity android:name=".ActualUserProfile" />
+        <activity android:name=".Screen5" />
         <activity android:name=".Screen4" />
         <activity android:name=".Screen3" />
         <activity android:name=".Screen2" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

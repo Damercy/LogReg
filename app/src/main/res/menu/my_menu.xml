@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/log_out"
+        android:onClick="LogOut"
+        android:icon="@drawable/ic_account"
+        android:title="Log Out" />
+    <item
+        android:id="@+id/dash"
+        android:icon="@drawable/ic_dash"
+        android:onClick="openDashb"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/help"
+        android:icon="@drawable/ic_help"
+        android:onClick="openOnBoardHelp"
+        android:title="Help" />
+    <item
+        android:id="@+id/abt"
+        android:icon="@drawable/ic_about"
+        android:onClick="openAbt"
+        android:title="About" />
+</menu>

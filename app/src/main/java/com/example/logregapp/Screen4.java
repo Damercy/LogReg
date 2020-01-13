@@ -31,22 +31,11 @@ public class Screen4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen4);
+        btn5 = findViewById(R.id.button5);
         user = findViewById(R.id.etmaillog);
         pass = findViewById(R.id.etpasslog);
-
-        //Load Firebase instance & progress dialog instance
-        fbauth = FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
-        //If logged in so check instance
-        FirebaseUser fbuser = fbauth.getCurrentUser();
 
-        //If logged in, then move to next activity from login page
-        if(fbuser!=null) {
-            finish();
-            startActivity(new Intent(Screen4.this, Screen5.class));
-        }
-
-        btn5 = findViewById(R.id.button5);
         frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
         fromtop = AnimationUtils.loadAnimation(this,R.anim.fromtop);
         btn5.setAnimation(frombottom);
@@ -64,9 +53,31 @@ public class Screen4 extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(user.getText().toString(),pass.getText().toString());
+                boolean result = incompleteFields();
+                if(result)
+                    Toast.makeText(Screen4.this, "Please fill all the fields!", Toast.LENGTH_SHORT).show();
+                else
+                    validate(user.getText().toString(),pass.getText().toString());
             }
         });
+
+        //Load Firebase instance & progress dialog instance
+        fbauth = FirebaseAuth.getInstance();
+        //If logged in so check instance
+        FirebaseUser fbuser = fbauth.getCurrentUser();
+
+        //If logged in, then move to next activity from login page
+        if(fbuser!=null) {
+            finish();
+            startActivity(new Intent(Screen4.this, Screen5.class));
+        }
+    }
+
+    private boolean incompleteFields() {
+        if(user.getText().toString().isEmpty() || pass.getText().toString().isEmpty())
+            return true;
+        else
+            return false;
     }
 
     private void validate(String usermail, String pass) {
@@ -78,7 +89,7 @@ public class Screen4 extends AppCompatActivity {
                 if(task.isSuccessful()) {
                     progressDialog.dismiss();
                     Toast.makeText(Screen4.this, "Login success!", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(Screen4.this,Screen5.class));
+                    startActivity(new Intent(Screen4.this,onBoard.class));
                 }
                 else{
                     progressDialog.dismiss();

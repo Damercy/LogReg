@@ -23,8 +23,8 @@ public class Screen2 extends AppCompatActivity {
         setContentView(R.layout.activity_screen2);
         myLay = findViewById(R.id.myLayout1);
         anim=(AnimationDrawable)myLay.getBackground();
-        anim.setEnterFadeDuration(4500);
-        anim.setExitFadeDuration(4500);
+        anim.setEnterFadeDuration(2000);
+        anim.setExitFadeDuration(2000);
         anim.start();
         btn2 = findViewById(R.id.button2);
         frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);

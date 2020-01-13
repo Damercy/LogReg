@@ -27,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         myLay = findViewById(R.id.myLayout);
         btn1 = findViewById(R.id.button1);
         anim=(AnimationDrawable)myLay.getBackground();
-        anim.setEnterFadeDuration(4500);
-        anim.setExitFadeDuration(4500);
+        anim.setEnterFadeDuration(2000);
+        anim.setExitFadeDuration(2000);
         anim.start();
         btn1 = findViewById(R.id.button1);
         frombottom = AnimationUtils.loadAnimation(this,R.anim.frombottom);
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onEventAnimationEnd(ImageView button, boolean buttonState) {
+                finish();
                 startActivity(new Intent(MainActivity.this,Screen2.class));
             }
 

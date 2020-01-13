@@ -17,6 +17,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Screen3 extends AppCompatActivity {
 
@@ -25,6 +27,7 @@ public class Screen3 extends AppCompatActivity {
     ImageView img;
     EditText user, mail, pass, mob;
     FirebaseAuth fbauth;
+    String umail,uname,upass,umob;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +57,7 @@ public class Screen3 extends AppCompatActivity {
         img.setVisibility(View.VISIBLE);
         img.animate()
                 .alpha(0.7f)
-                .setDuration(2500)
+                .setDuration(2000)
                 .setListener(null);
 
         //Logic for registration begins
@@ -62,14 +65,19 @@ public class Screen3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(validate()){
-                    // upload user data to database : email & pass
-                    String umail = mail.getText().toString().trim();
-                    String upass = pass.getText().toString().trim();
+                    umob = mob.getText().toString();
+                    uname = user.getText().toString();
+                    // Authentication : upload user data to database : email & pass
+                    umail = mail.getText().toString().trim();
+                    upass = pass.getText().toString().trim();
                     fbauth.createUserWithEmailAndPassword(umail,upass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()) {
+                                uploadUserData();
                                 Toast.makeText(Screen3.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                fbauth.signOut();
+                                finish();
                                 startActivity(new Intent(Screen3.this,Screen2.class));
                             }
                             else{
@@ -80,6 +88,14 @@ public class Screen3 extends AppCompatActivity {
                 }
             }
         });
+
+    }
+
+    private void uploadUserData(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference(fbauth.getUid());
+        UserProfile usrprof = new UserProfile(uname,umail,umob);
+        databaseReference.setValue(usrprof);
 
     }
 
