@@ -1,5 +1,6 @@
 package com.example.logregapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
+
 
 public class Screen5 extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
@@ -28,14 +30,14 @@ public class Screen5 extends AppCompatActivity {
         confirmation();
     }
 
-    //Complete openDashb button function
+    //TODO:Complete dashboard button
     public void openDashb(MenuItem item) {
     }
 
     public void openOnBoardHelp(MenuItem item) {
         startActivity(new Intent(Screen5.this,onBoard.class));
     }
-
+    //TODO:Complete About button
     public void openAbt(MenuItem item) {
     }
     private void confirmation() {

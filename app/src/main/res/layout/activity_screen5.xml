@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/myDrawer"
-    android:background="@drawable/my_bg_anim"
+    android:background="#5EC1EC"
     tools:context=".Screen5">
 
     <com.google.android.material.navigation.NavigationView
